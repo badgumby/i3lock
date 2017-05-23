@@ -199,6 +199,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
         /* We don't want to show more than a 3-digit number. */
         char buf[4];
 
+        /* Text Color */
         cairo_set_source_rgb(ctx, 255, 255, 255);
         cairo_set_font_size(ctx, 28.0);
         switch (pam_state) {
