@@ -1,5 +1,10 @@
-i3lock - improved screen locker
+i3lock - Modified by BadGumby
 ===============================
+I have made changes that I personally wanted.
+To view the original project, please go here: https://github.com/i3/i3lock
+
+*Original information below *
+
 i3lock is a simple screen locker like slock. After starting it, you will
 see a white screen (you can configure the color/an image). You can return
 to your screen by entering your password.
@@ -36,7 +41,4 @@ Running i3lock
 Simply invoke the 'i3lock' command. To get out of it, enter your password and
 press enter.
 
-Upstream
---------
-Please submit pull requests to https://github.com/i3/i3lock
-# i3lock
+#i3lock

@@ -175,7 +175,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
                 cairo_set_source_rgb(ctx, 125.0 / 255, 51.0 / 255, 0);
                 break;
             case STATE_PAM_IDLE:
-                cairo_set_source_rgb(ctx, 51.0 / 255, 125.0 / 255, 0);
+                cairo_set_source_rgb(ctx, 0, 43.0 / 255, 124.0 / 255);
                 break;
         }
         cairo_stroke(ctx);
@@ -202,10 +202,10 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
         cairo_set_font_size(ctx, 28.0);
         switch (pam_state) {
             case STATE_PAM_VERIFY:
-                text = "verifying…";
+                text = "Verifying…";
                 break;
             case STATE_PAM_WRONG:
-                text = "wrong!";
+                text = "Incorrect";
                 break;
             default:
                 if (show_failed_attempts && failed_attempts > 0) {
@@ -263,8 +263,8 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
                       highlight_start,
                       highlight_start + (M_PI / 3.0));
             if (unlock_state == STATE_KEY_ACTIVE) {
-                /* For normal keys, we use a lighter green. */
-                cairo_set_source_rgb(ctx, 51.0 / 255, 219.0 / 255, 0);
+                /* For normal keys, we use a lighter bluish-green. */
+                cairo_set_source_rgb(ctx, 0 / 255, 186.0 / 255, 219.0);
             } else {
                 /* For backspace, we use red. */
                 cairo_set_source_rgb(ctx, 219.0 / 255, 51.0 / 255, 0);
