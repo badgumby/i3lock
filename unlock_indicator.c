@@ -155,14 +155,14 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
         /* Use the appropriate color for the different PAM states
          * (currently verifying, wrong password, or default) */
         switch (pam_state) {
-            case STATE_PAM_VERIFY:
-                cairo_set_source_rgba(ctx, 0, 114.0 / 255, 255.0 / 255, 0.75);
+                case STATE_PAM_VERIFY:
+                cairo_set_source_rgba(ctx, 0, 114.0 / 255, 255.0 / 255, 0.15);
                 break;
             case STATE_PAM_WRONG:
-                cairo_set_source_rgba(ctx, 250.0 / 255, 0, 0, 0.75);
+                cairo_set_source_rgba(ctx, 250.0 / 255, 0, 0, 0.15);
                 break;
             default:
-                cairo_set_source_rgba(ctx, 0, 0, 0, 0.75);
+                cairo_set_source_rgba(ctx, 0, 0, 0, 0.0);
                 break;
         }
         cairo_fill_preserve(ctx);
@@ -174,6 +174,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
             case STATE_PAM_WRONG:
                 cairo_set_source_rgb(ctx, 125.0 / 255, 51.0 / 255, 0);
                 break;
+       /* Ring default */
             case STATE_PAM_IDLE:
                 cairo_set_source_rgb(ctx, 0, 43.0 / 255, 124.0 / 255);
                 break;
@@ -181,7 +182,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
         cairo_stroke(ctx);
 
         /* Draw an inner seperator line. */
-        cairo_set_source_rgb(ctx, 0, 0, 0);
+        cairo_set_source_rgba(ctx, 0, 0, 0, 0.2);
         cairo_set_line_width(ctx, 2.0);
         cairo_arc(ctx,
                   BUTTON_CENTER /* x */,
@@ -198,7 +199,7 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
         /* We don't want to show more than a 3-digit number. */
         char buf[4];
 
-        cairo_set_source_rgb(ctx, 0, 0, 0);
+        cairo_set_source_rgb(ctx, 255, 255, 255);
         cairo_set_font_size(ctx, 28.0);
         switch (pam_state) {
             case STATE_PAM_VERIFY:
