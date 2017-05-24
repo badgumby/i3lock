@@ -176,13 +176,13 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
                 break;
        /* Ring default */
             case STATE_PAM_IDLE:
-                cairo_set_source_rgb(ctx, 0, 43.0 / 255, 124.0 / 255);
+                cairo_set_source_rgba(ctx, 0, 43.0 / 255, 124.0 / 255, 0.3);
                 break;
         }
         cairo_stroke(ctx);
 
         /* Draw an inner seperator line. */
-        cairo_set_source_rgba(ctx, 0, 0, 0, 0.2);
+        cairo_set_source_rgba(ctx, 0, 0, 0, 0);
         cairo_set_line_width(ctx, 2.0);
         cairo_arc(ctx,
                   BUTTON_CENTER /* x */,
@@ -266,16 +266,16 @@ xcb_pixmap_t draw_image(uint32_t *resolution) {
                       highlight_start + (M_PI / 3.0));
             if (unlock_state == STATE_KEY_ACTIVE) {
                 /* For normal keys, we use a lighter bluish-green. */
-                cairo_set_source_rgb(ctx, 0 / 255, 186.0 / 255, 219.0);
+                cairo_set_source_rgba(ctx, 0 / 255, 186.0 / 255, 219.0, 0.2);
             } else {
                 /* For backspace, we use red. */
-                cairo_set_source_rgb(ctx, 219.0 / 255, 51.0 / 255, 0);
+                cairo_set_source_rgba(ctx, 219.0 / 255, 51.0 / 255, 0, 0.2);
             }
             cairo_stroke(ctx);
 
             /* Draw two little separators for the highlighted part of the
              * unlock indicator. */
-            cairo_set_source_rgb(ctx, 0, 0, 0);
+            cairo_set_source_rgba(ctx, 0, 0, 0, 0);
             cairo_arc(ctx,
                       BUTTON_CENTER /* x */,
                       BUTTON_CENTER /* y */,
