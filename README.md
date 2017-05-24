@@ -41,4 +41,4 @@ Running i3lock
 Simply invoke the 'i3lock' command. To get out of it, enter your password and
 press enter.
 
-#i3lock
+# i3lock 
